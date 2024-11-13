@@ -25,6 +25,7 @@ const Posts = () => {
         try {
             const querySnapshot = await getDocs(collection(fireStoreDb, "posts"));
             const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+            newData.sort((a,b)=>b.createdAt-a.createdAt)
             setPosts(newData);
             console.log(newData);
         } catch (err) {
