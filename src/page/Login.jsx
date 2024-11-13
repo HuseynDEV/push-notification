@@ -17,22 +17,11 @@ const Login = () => {
 
 
 
-    // const signUpButton = async () => {
-    //     try {
-    //         await signInWithEmailAndPassword(auth, email, name)
-    //     }
-
-    //     catch (err) {
-    //         console.log(err);
-
-    //     }
-    // }
+ 
     return (
         <div>
-
-            {/* <input type='text' value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type='password' value={name} onChange={(e) => setName(e.target.value)} />
-            <button onClick={signUpButton}>Sign Up</button> */}
+   
+     
             <button onClick={signInGoogle}>Google</button>
         </div>
     )

@@ -8,7 +8,6 @@ const Chat = () => {
     const [text, setText] = useState()
     const [todos, setTodos] = useState([])
     const [user] = useAuthState(auth)
-
     const signOutFunc = async () => {
         try {
             await signOut(auth)
@@ -18,7 +17,6 @@ const Chat = () => {
 
         }
     }
-
     const sharePost = async () => {
         try {
 
@@ -28,12 +26,12 @@ const Chat = () => {
                 avatar: user.photoURL,
                 createdAt: serverTimestamp()
             })
+            fetchPosts();
 
         } catch (err) {
             console.log(err);
         }
     }
-
 
 
     const fetchPosts = async () => {
