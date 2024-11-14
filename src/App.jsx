@@ -3,9 +3,9 @@
 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Posts from './pages2/Posts'
-import Login from './pages2/Login'
-import AddPost from './pages2/AddPost'
+import Posts from './pages/Posts'
+import Login from './pages/Login'
+import AddPost from './pages/AddPost'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from './firebase'
 
