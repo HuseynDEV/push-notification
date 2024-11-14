@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { auth, fireStoreDb } from '../firebase';
 import { signOut } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Posts = () => {
     const [posts, setPosts] = useState([]);
-    const navigate=useNavigate()
+    const navigate = useNavigate()
 
     const signOutFunc = async () => {
         try {
@@ -16,6 +16,8 @@ const Posts = () => {
         }
     };
 
+
+
     const addPostFunc = () => {
         navigate('/addPost')
         console.log("Add Post button clicked");
@@ -24,10 +26,11 @@ const Posts = () => {
     const fetchPosts = async () => {
         try {
             const querySnapshot = await getDocs(collection(fireStoreDb, "posts"));
+            console.log(querySnapshot.docs);
             const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-            newData.sort((a,b)=>b.createdAt-a.createdAt)
-            setPosts(newData);
+            newData.sort((a, b) => b.createdAt - a.createdAt)
             console.log(newData);
+            setPosts(newData);
         } catch (err) {
             console.log(err);
         }
@@ -40,7 +43,7 @@ const Posts = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4">
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-                
+
                 {/* Buttons Section */}
                 <div className="flex justify-between mb-8">
                     <button

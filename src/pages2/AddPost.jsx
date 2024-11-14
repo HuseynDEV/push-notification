@@ -1,5 +1,5 @@
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, fireStoreDb } from '../firebase';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 const AddPost = () => {
     const [content, setContent] = useState('');
     const [user] = useAuthState(auth)
-    const navigate=useNavigate()
+    const navigate = useNavigate()
+
+
 
     const handlePostSubmit = async (e) => {
         e.preventDefault();
@@ -16,16 +18,14 @@ const AddPost = () => {
                 text: content,
                 name: user.displayName,
                 avatar: user.photoURL,
-                createdAt: serverTimestamp()
+                createdAt: serverTimestamp(),
             })
             navigate('/')
             setContent('');
         }
         catch (err) {
             console.log(err);
-
         }
-
     };
 
     return (
