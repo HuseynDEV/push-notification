@@ -10,7 +10,6 @@ const Posts = () => {
     const navigate = useNavigate()
 
 
-
     const getToken = async () => {
         const permission = await Notification.requestPermission()
         if (permission == 'granted') {
@@ -20,10 +19,21 @@ const Posts = () => {
             }
         }
     }
-
     useEffect(() => {
         getToken()
     }, [])
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 import { getToken, onMessage } from "firebase/messaging";
 import { messaging } from "../firebase";
 
+
 const VAPID_KEY = 'BDew8eK_CYSf0SDJcZ3nl-n6ET_JfJZaavWHKeG_kwUKsP1uvAM9K7Bjsbz1XLq0-UaJNmKoI0VwjBX752qwHHw'
 
 export const requestForToken = () => {
@@ -8,7 +9,8 @@ export const requestForToken = () => {
         .then((currentToken) => {
             if (currentToken) {
                 return currentToken;
-            } else {
+            }
+            else {
                 alert(
                     "No registration token available. Request permission to generate one."
                 );
@@ -27,3 +29,7 @@ onMessage(messaging, ({ notification }) => {
         icon: notification.icon,
     });
 });
+
+
+
+

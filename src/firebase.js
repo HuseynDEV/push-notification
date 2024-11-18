@@ -17,7 +17,7 @@ const firebaseConfig = {
     storageBucket: "first-app-a0126.firebasestorage.app",
     messagingSenderId: "256690195099",
     appId: "1:256690195099:web:c836ca2d3f0396a450143e",
-    vapidKey:VAPID_KEY
+    vapidKey: VAPID_KEY
 };
 
 
