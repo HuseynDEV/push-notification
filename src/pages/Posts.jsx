@@ -3,10 +3,29 @@ import { auth, fireStoreDb } from '../firebase';
 import { signOut } from 'firebase/auth';
 import { collection, getDocs } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { requestForToken } from '../utils/notification';
 
 const Posts = () => {
     const [posts, setPosts] = useState([]);
     const navigate = useNavigate()
+
+
+
+    const getToken = async () => {
+        const permission = await Notification.requestPermission()
+        if (permission == 'granted') {
+            const token = await requestForToken()
+            if (token) {
+                console.log('Token', token);
+            }
+        }
+    }
+
+    useEffect(() => {
+        getToken()
+    }, [])
+
+
 
     const signOutFunc = async () => {
         try {
